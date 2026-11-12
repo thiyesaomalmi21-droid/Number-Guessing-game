@@ -1,12 +1,13 @@
-console.log("hii");
+
 let num=Math.floor(Math.random()*10);
-console.log(num);
+let attempts=3;
 
 function guess(){
+    attempts--;
     let x=Number(document.getElementById("txtfield").value);
 
     if(x===num){
-        console.log("YEs well done");
+        
         Swal.fire({
             title: "Correct Guess!",
             icon: "success",
@@ -14,10 +15,20 @@ function guess(){
             });
         
     }else if(x>num){
-        console.log("wrong gues-gini gini");
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "You have only "+ attempts +" more attemps left!",
+            footer: "<a href=\"#\">Why do I have this issue?</a>"
+            });
         
     }else if(x<num){
-        console.log("wrong gues-siithalai");
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "You have only "+ attempts +" more attemps left!",
+            footer: "<a href=\"#\">Why do I have this issue?</a>"
+            });
     }
 
 }
